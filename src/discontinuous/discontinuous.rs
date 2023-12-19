@@ -20,6 +20,14 @@ impl Saturation {
             x
         }
     }
+
+    pub fn top(&self) -> f64 {
+        self.top
+    }
+
+    pub fn bottom(&self) -> f64 {
+        self.bottom
+    }
 }
 
 impl Transfer<f64, f64> for Saturation {

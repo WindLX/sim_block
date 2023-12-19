@@ -1,4 +1,6 @@
-pub mod block;
+pub(crate) mod block;
+pub use block::*;
+
 pub mod model;
 pub mod utils;
 
@@ -10,10 +12,6 @@ pub mod sink;
 
 #[cfg(feature = "continuous")]
 pub mod continuous;
-
-#[cfg(feature = "vector")]
-#[cfg(feature = "continuous")]
-pub use continuous::vector::*;
 
 #[cfg(feature = "discontinuous")]
 pub mod discontinuous;

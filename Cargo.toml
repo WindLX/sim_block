@@ -16,7 +16,7 @@ criterion = "0.5.1"
 rand = "0.8.5"
 
 [features]
-default = []
+default = ["full"]
 full = ["source", "sink", "continuous", "vector", "matrix", "discontinuous"]
 vector = []
 matrix = ["vector"]

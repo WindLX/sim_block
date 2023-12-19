@@ -39,6 +39,14 @@ impl Integrator {
         self.past
     }
 
+    pub fn init(&self) -> f64 {
+        self.init
+    }
+
+    pub fn is_derivative(&self) -> bool {
+        self.is_derivative
+    }
+
     pub fn reset(&mut self) {
         self.last_value = self.init;
         self.past = self.init;
@@ -98,6 +106,13 @@ pub(crate) mod vector {
             self.past.clone()
         }
 
+        pub fn init(&self) -> Vector {
+            self.init.clone()
+        }
+
+        pub fn is_derivative(&self) -> bool {
+            self.is_derivative
+        }
         pub fn past(&self) -> Vector {
             self.past.clone()
         }
@@ -117,28 +132,6 @@ pub(crate) mod vector {
                 self.integrate(t, &input)
             }
         }
-    }
-}
-
-#[derive(Debug, Clone)]
-pub struct Differentiator {
-    last_value: f64,
-    last_time: f64,
-}
-
-impl Differentiator {
-    pub fn new(init: f64) -> Self {
-        Self {
-            last_value: init,
-            last_time: 0.0,
-        }
-    }
-
-    pub fn differentiate(&mut self, value: f64, t: f64) -> f64 {
-        let res = (value - self.last_value) / (t - self.last_time);
-        self.last_value = value;
-        self.last_time = t;
-        res
     }
 }
 
